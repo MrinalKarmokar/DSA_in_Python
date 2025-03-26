@@ -1,7 +1,5 @@
 from imports import *
 
-print(MY_NAME)
-
 stackusinglist = StackUsingList()
 stackusinglist.push(1)
 stackusinglist.push(2)
