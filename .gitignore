@@ -1,0 +1,46 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+venv/
+env/
+
+# Environment variables
+*.env
+
+# Database files
+*.sqlite3
+
+# Logs
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Python egg files
+*.egg-info/
+.eggs/
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# Build artifacts
+build/
+dist/
+*.egg
+*.whl
+
+# Test coverage reports
+htmlcov/
+.coverage
+*.cover
+*.coverage.*
+
+# Miscellaneous
+*.bak
+*.swp
+*.tmp
