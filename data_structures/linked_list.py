@@ -11,6 +11,8 @@ class SinglyLinkedListNode:
         self.data = data
         self.next = None
 
+# -----------------------------
+
 class SinglyLinkedListWithoutTail:
     """A Singly Linked List without a tail pointer."""
     def __init__(self):
@@ -153,6 +155,8 @@ class SinglyLinkedListWithoutTail:
             str: A string representation of the linked list.
         """
         return "(head) -> " + " -> ".join(self.traverse()) + " -> (none)"
+
+# -----------------------------
 
 class SinglyLinkedListWithTail:
     """A Singly Linked List with a tail pointer."""
