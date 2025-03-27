@@ -149,25 +149,6 @@ class SinglyLinkedListWithoutTail:
 
 def main():
     sllwot = SinglyLinkedListWithoutTail()
-    sllwot.append(1)
-    sllwot.append(2)
-    sllwot.append(3)
-    sllwot.prepend(0)
-    print("Singly Linked List without Tail:")
-    print("Length:", sllwot.length())
-    print("Elements:", " -> ".join(sllwot.traverse()))
-    sllwot.delete_by_key(2)
-    print("After deleting '2':")
-    print("Length:", sllwot.length())
-    print("Elements:", " -> ".join(sllwot.traverse()))
-    sllwot.delete_by_position(1)
-    print("After deleting position '1':")
-    print("Length:", sllwot.length())
-    print("Elements:", " -> ".join(sllwot.traverse()))
-    sllwot.insert_after(3, 4)
-    print("After inserting '4' after '1':")
-    print("Length:", sllwot.length())
-    print("Elements:", " -> ".join(sllwot.traverse()))
 
 if __name__ == "__main__":
     main()
