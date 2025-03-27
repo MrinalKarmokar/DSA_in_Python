@@ -1,3 +1,2 @@
 from collections import deque
-from queue import LifoQueue
-from queue import Queue
+from queue import LifoQueue, Queue, PriorityQueue
