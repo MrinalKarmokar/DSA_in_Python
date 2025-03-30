@@ -30,6 +30,8 @@ class SinglyLinkedListWithoutTail:
         Raises:
             ValueError: If the data is None.
         """
+        if data is None:
+            raise ValueError("Data cannot be None")
         new_node = SinglyLinkedListNode(data)
         if not self.head:
             self.head = new_node
@@ -49,6 +51,8 @@ class SinglyLinkedListWithoutTail:
         Raises:
             ValueError: If the data is None.
         """
+        if data is None:
+            raise ValueError("Data cannot be None")
         new_node = SinglyLinkedListNode(data)
         new_node.next = self.head
         self.head = new_node
@@ -662,8 +666,102 @@ class CircularSinglyLinkedListNode:
         """
         self.data = data
         self.next = None
+    
+class CircularSinglyLinkedListWithoutTail:
+    def __init__(self):
+        self.head = None
+        self.size = 0
+    
+    def append(self, data):
+        new_node = CircularSinglyLinkedListNode(data)
+        if not self.head:
+            self.head = new_node
+            self.head.next = new_node
+            self.size += 1
+            return
+        current_node = self.head
+        while True:
+            if current_node.next == self.head:
+                current_node.next = new_node
+                new_node.next = self.head
+                self.size += 1
+                return
+            current_node = current_node.next
+    
+    def prepend(self, data):
+        new_node = CircularSinglyLinkedListNode(data)
+        if not self.head:
+            self.head = new_node
+            self.head.next = new_node
+            self.size += 1
+            return
+        current_node = self.head
+        while current_node.next != self.head:
+            current_node = current_node.next
+        current_node.next = new_node
+        new_node.next = self.head
+        self.head = new_node
+        self.size += 1
+    
+    def insert_after(self, prev_node_data, data):
+        new_node = CircularSinglyLinkedListNode(data)
+        current_node = self.head
+        while True:
+            if current_node.data == prev_node_data:
+                if current_node.next != self.head:
+                    new_node.next = current_node.next
+                else:
+                    new_node.next = self.head
+                current_node.next = new_node
+                return
+            current_node = current_node.next
 
 
+
+    def delete_by_key(self, key):
+        pass
+
+    def delete_by_position(self, position):
+        pass
+
+
+
+    def traverse(self):
+        if not self.head:
+            return []
+        current_node = self.head
+        nodes = []
+        while True:
+            nodes.append(str(current_node.data))
+            if current_node.next == self.head:
+                break
+            current_node = current_node.next
+        return nodes
+    
+    def loop_3_times(self):
+        if not self.head:
+            return
+        current_node = self.head
+        count = 0
+        while count < 3:
+            print(current_node.data, end=" -> ")
+            if current_node.next == self.head:
+                count += 1
+            current_node = current_node.next
+        print("...")
+    
+    def __str__(self):
+        if not self.head:
+            return "(head) -> (none)"
+        current_node = self.head
+        nodes = []
+        while True:
+            nodes.append(str(current_node.data))
+            if current_node.next == self.head:
+                break
+            current_node = current_node.next
+        return "(head) -> " + " -> ".join(nodes) + " -> (head)"
+  
 class CircularDoublyLinkedListNode:
     def __init__(self, data):
         """
@@ -678,13 +776,30 @@ class CircularDoublyLinkedListNode:
         self.prev = None
 
 
-
-
 def main():
     sllwot = SinglyLinkedListWithoutTail()
     sllwt = SinglyLinkedListWithTail()
     dllwot = DoublyLinkedListWithoutTail()
     dllwt = DoublyLinkedListWithTail()
+    cllwot = CircularSinglyLinkedListWithoutTail()
+
+    cllwot.append(1)
+    cllwot.append(2)
+    print(cllwot)
+    cllwot.append(3)
+    cllwot.prepend(0)
+    print(cllwot)
+    cllwot.append(4)
+    cllwot.append(5)
+    print(cllwot)
+    cllwot.prepend(-1)
+    cllwot.traverse()
+    print(cllwot)
+    cllwot.insert_after(1, 1.5)
+    cllwot.insert_after(-1, 0.5)
+    cllwot.insert_after(5, 5.5)
+    print(cllwot)
+    cllwot.loop_3_times()
 
 if __name__ == "__main__":
     main()

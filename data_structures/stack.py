@@ -52,7 +52,7 @@ class StackUsingList:
         Returns:
             True if the stack is empty, False otherwise
         """
-        return self.size == 0
+        return self.size() == 0
     
     def size(self):
         """
